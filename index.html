@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0">
+    <title>Mezarje Tabine njive u Kladnju</title>
+    <script src="https://aframe.io/releases/1.4.1/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        a-scene {
+            width: 90%;
+            height: 80vh;
+        }
+    </style>
+</head>
+<body>
+    <audio id="audio-bosnian">
+        <source src="https://cdn.glitch.global/82bd67b9-b588-4287-a5de-76333118de37/ttsmaker-file-2025-3-8-13-8-48.mp3?v=1741436142650" type="audio/mpeg">
+    </audio>
+    <audio id="audio-english">
+        <source src="https://cdn.glitch.global/82bd67b9-b588-4287-a5de-76333118de37/ttsmaker-file-2025-3-8-13-10-24.mp3?v=1741436182366" type="audio/mpeg">
+    </audio>
+    <audio id="audio-german">
+        <source src="https://cdn.glitch.global/82bd67b9-b588-4287-a5de-76333118de37/ttsmaker-file-2025-3-8-13-12-27.mp3?v=1741436218159" type="audio/mpeg">
+    </audio>
+    <audio id="audio-italian">
+        <source src="https://cdn.glitch.global/82bd67b9-b588-4287-a5de-76333118de37/ttsmaker-file-2025-3-8-13-13-54.mp3?v=1741436282975" type="audio/mpeg">
+    </audio>
+    <audio id="audio-turkish">
+        <source src="https://cdn.glitch.global/82bd67b9-b588-4287-a5de-76333118de37/ttsmaker-file-2025-3-8-13-15-13.mp3?v=1741436321966" type="audio/mpeg">
+    </audio>
+
+  
+    <a-scene embedded arjs="sourceType: webcam; trackingMethod: best; debugUIEnabled: false;">
+        <a-plane color="#008000" height="3.5" width="6.5" position="0 0.5 -5" opacity="0.9"></a-plane>
+
+       <a-entity 
+            gltf-model="https://cdn.glitch.global/82bd67b9-b588-4287-a5de-76333118de37/tripo_pbr_model_376566a6-4dc0-4ae3-92f0-b1de7f72e913.glb?v=1741436501392" 
+            position="-2 1 -5" 
+            scale="1 1 1" 
+            rotation="0 240 0" 
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
+        </a-entity>
+
+      <a-entity 
+    gltf-model="https://cdn.glitch.global/82bd67b9-b588-4287-a5de-76333118de37/tripo_pbr_model_376566a6-4dc0-4ae3-92f0-b1de7f72e913.glb?v=1741436501392" 
+    position="2 1 -5" 
+    scale="1 1 1" 
+    rotation="0 240 0" 
+    animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
+</a-entity>
+      
+      
+      
+  
+
+<a-entity id="eng-button" geometry="primitive: plane; height: 0.5; width: 1.5"
+          material="color: red" position="-2.5 2 -4.9"
+          text="value: ENG; color: white; align: center; width: 3;">
+</a-entity>
+
+<a-entity id="deu-button" geometry="primitive: plane; height: 0.5; width: 1.5"
+          material="color: yellow" position="-1 2 -4.9"
+          text="value: DEU; color: black; align: center; width: 3;">
+</a-entity>
+
+<a-entity id="ita-button" geometry="primitive: plane; height: 0.5; width: 1.5"
+          material="color: blue" position="0.5 2 -4.9"
+          text="value: ITA; color: white; align: center; width: 3;">
+</a-entity>
+
+<a-entity id="tur-button" geometry="primitive: plane; height: 0.5; width: 1.5"
+          material="color: brown" position="2 2 -4.9"
+          text="value: TUR; color: white; align: center; width: 3;">
+</a-entity>
+
+
+        <a-entity position="0 0.8 -4.9">
+            <a-text value="Tabina Njive je prvo drustveno groblje u Kladnju, nastalo 1905. godine kao odgovor na tradiciju sahranjivanja mrtvih u privatnim bastama ili grobljima uz dzamije. Ova promjena oznacila je vazan korak ka modernizaciji i organizaciji zajednickog groblja, omogucavajući porodicama da odaju pocast svojim najmilijima na jednom mjestu. Smjesteno na površini od tridesetak hektara, ovo groblje i danas sluzi kao jedno od glavnih pocivalista stanovnika Kladnja. Njegova istorijska i kulturna vrijednost ogleda se ne samo u dugoj tradiciji, već iu činjenici da svjedoci o razvoju masovnih groblja na ovim prostorima. Tabine njive, osim sto su mjesto sjecanja i poboznosti, predstavljaju i svojevrsni spomenik prošlim vremenima, svjedoceci o tradiciji, vjerovanjima i drustvenim promjenama koje su oblikovale zivot u Kladnju. Tokom godina groblje je postalo simbol zajednistva i solidarnosti, a uspomene na pretke trajno su uklesane na nadgrobnim spomenicima. "
+                    color="#FFFF00" width="5.5" wrap-count="50" align="center" scale="0.5 0.5 0.5">
+            </a-text>
+        </a-entity>
+
+        <a-entity 
+            gltf-model="https://cdn.glitch.global/82bd67b9-b588-4287-a5de-76333118de37/tripo_pbr_model_376566a6-4dc0-4ae3-92f0-b1de7f72e913.glb?v=1741436501392" 
+            position="-2 1 -5" 
+            scale="0.5 0.5 0.5" 
+            rotation="0 240 0" 
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
+        </a-entity>
+
+        <a-entity 
+            gltf-model="https://cdn.glitch.global/82bd67b9-b588-4287-a5de-76333118de37/tripo_pbr_model_376566a6-4dc0-4ae3-92f0-b1de7f72e913.glb?v=1741436501392" 
+            position="2 1 -5" 
+            scale="0.5 0.5 0.5" 
+            rotation="0 240 0" 
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
+        </a-entity>
+
+        <a-entity camera look-controls position="0 0 0" fov="85">
+            <a-cursor color="#FF0000" radius="0.05"></a-cursor>
+        </a-entity>
+    </a-scene>
+
+    <script>
+        let bosnianAudio = document.getElementById('audio-bosnian');
+        let englishAudio = document.getElementById('audio-english');
+        let germanAudio = document.getElementById('audio-german');
+        let italianAudio = document.getElementById('audio-italian');
+        let turkishAudio = document.getElementById('audio-turkish');
+
+        function stopAllAudio() {
+            [bosnianAudio, englishAudio, germanAudio, italianAudio, turkishAudio].forEach(audio => {
+                audio.pause();
+                audio.currentTime = 0;
+            });
+        }
+
+        function playAudio(audioElement) {
+            stopAllAudio();
+            audioElement.play();
+        }
+
+        document.getElementById('eng-button').addEventListener('mouseenter', () => playAudio(englishAudio));
+        document.getElementById('deu-button').addEventListener('mouseenter', () => playAudio(germanAudio));
+        document.getElementById('ita-button').addEventListener('mouseenter', () => playAudio(italianAudio));
+        document.getElementById('tur-button').addEventListener('mouseenter', () => playAudio(turkishAudio));
+
+        // window.addEventListener('load', () => {
+        //     bosnianAudio.play().catch(e => console.log("Audio autoplay blokiran: " + e));
+        // });
+      
+      window.addEventListener('load', () => {
+    document.body.addEventListener('click', () => {
+        if (bosnianAudio.paused) {
+            bosnianAudio.play();
+        }
+    }, { once: true }); // Pokreće se samo jednom
+});
+
+    </script>
+</body>
+</html>
