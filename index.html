@@ -214,48 +214,46 @@
     </a-entity>
   </a-scene>
 
-  <script>
-    const bosnianAudio = document.getElementById('audio-bosnian');
-    const englishAudio = document.getElementById('audio-english');
-    const germanAudio = document.getElementById('audio-german');
-    const italianAudio = document.getElementById('audio-italian');
-    const turkishAudio = document.getElementById('audio-turkish');
+<script>
+  const audios = {
+    bos: document.getElementById('audio-bosnian'),
+    eng: document.getElementById('audio-english'),
+    deu: document.getElementById('audio-german'),
+    ita: document.getElementById('audio-italian'),
+    tur: document.getElementById('audio-turkish')
+  };
 
-    function stopAllAudio() {
-      [bosnianAudio, englishAudio, germanAudio, italianAudio, turkishAudio].forEach(audio => {
-        audio.pause();
-        audio.currentTime = 0;
-      });
-    }
-
-    function playAudio(audioElement) {
-      if (!audioElement || !audioElement.src) {
-        console.warn('Audio element nije ispravan.');
-        return;
-      }
-      stopAllAudio();
-      audioElement.play().then(() => {
-        console.log('Sviram:', audioElement.id);
-      }).catch(error => {
-        console.warn('Greška pri sviranju:', error);
-      });
-    }
-
-    // Dugmad na klik
-    document.getElementById('eng-button').addEventListener('click', () => playAudio(englishAudio));
-    document.getElementById('deu-button').addEventListener('click', () => playAudio(germanAudio));
-    document.getElementById('ita-button').addEventListener('click', () => playAudio(italianAudio));
-    document.getElementById('tur-button').addEventListener('click', () => playAudio(turkishAudio));
-
-    // Automatski pusti bosanski nakon prvog dodira ekrana
-    window.addEventListener('load', () => {
-      const unlockAudio = () => {
-        playAudio(bosnianAudio);
-        document.body.removeEventListener('click', unlockAudio);
-      };
-      document.body.addEventListener('click', unlockAudio);
+  function stopAllAudio() {
+    Object.values(audios).forEach(audio => {
+      audio.pause();
+      audio.currentTime = 0;
     });
-  </script>
+  }
+
+  function playAudio(id) {
+    const audioElement = audios[id];
+    if (!audioElement) return;
+    stopAllAudio();
+    audioElement.play().catch(err => {
+      console.warn("Audio blokiran, moraš prvo kliknuti negdje.", err);
+    });
+  }
+
+  // Dodaj event listenere na dugmad
+  window.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('eng-button').addEventListener('click', () => playAudio('eng'));
+    document.getElementById('deu-button').addEventListener('click', () => playAudio('deu'));
+    document.getElementById('ita-button').addEventListener('click', () => playAudio('ita'));
+    document.getElementById('tur-button').addEventListener('click', () => playAudio('tur'));
+
+    // Automatski pusti bosanski na prvi klik
+    const unlockAudio = () => {
+      playAudio('bos');
+      document.body.removeEventListener('click', unlockAudio);
+    };
+    document.body.addEventListener('click', unlockAudio);
+  });
+</script>
 </body>
 </html>
 
