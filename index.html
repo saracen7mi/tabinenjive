@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -130,3 +130,81 @@
     </script>
 </body>
 </html>
+ -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mezarje Tabine njive u Kladnju</title>
+  <script src="https://aframe.io/releases/1.4.1/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+    a-scene {
+      width: 90%;
+      height: 80vh;
+    }
+  </style>
+</head>
+<body>
+  <!-- AUDIO -->
+  <audio id="audio-bosnian">
+    <source src="https://cdn.jsdelivr.net/gh/saracen7mi/tabinenjive@main/tabinenjivebosanski.mp3" type="audio/mpeg" />
+  </audio>
+  <audio id="audio-english">
+    <source src="https://cdn.jsdelivr.net/gh/saracen7mi/tabinenjive@main/tabinenjiveengleski.mp3" type="audio/mpeg" />
+  </audio>
+  <audio id="audio-german">
+    <source src="https://cdn.jsdelivr.net/gh/saracen7mi/tabinenjive@main/tabinenjivenjemacki.mp3" type="audio/mpeg" />
+  </audio>
+  <audio id="audio-italian">
+    <source src="https://cdn.jsdelivr.net/gh/saracen7mi/tabinenjive@main/tabinenjiveitalijanski.mp3" type="audio/mpeg" />
+  </audio>
+  <audio id="audio-turkish">
+    <source src="https://cdn.jsdelivr.net/gh/saracen7mi/tabinenjive@main/tabinenjiveturski.mp3" type="audio/mpeg" />
+  </audio>
+
+  <a-scene embedded arjs="sourceType: webcam; trackingMethod: best; debugUIEnabled: false;">
+    <a-plane color="#008000" height="3.5" width="6.5" position="0 0.5 -5" opacity="0.9"></a-plane>
+
+    <!-- MODELI -->
+    <a-entity 
+      gltf-model="https://cdn.jsdelivr.net/gh/saracen7mi/tabinenjive@main/zvijezdaislam.glb" 
+      position="-2 1 -5" scale="1 1 1" rotation="0 240 0"
+      animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
+    </a-entity>
+    <a-entity 
+      gltf-model="https://cdn.jsdelivr.net/gh/saracen7mi/tabinenjive@main/zvijezdaislam.glb" 
+      position="2 1 -5" scale="1 1 1" rotation="0 240 0"
+      animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
+    </a-entity>
+
+    <!-- DUGMAD -->
+    <a-entity id="eng-button" geometry="primitive: plane; height: 0.5; width: 1.5"
+              material="color: red" position="-2.5 2 -4.9"
+              text="value: ENG; color: white; align: center; width: 3;"></a-entity>
+    <a-entity id="deu-button" geometry="primitive: plane; height: 0.5; width: 1.5"
+              material="color: yellow" position="-1 2 -4.9"
+              text="value: DEU; color: black; align: center; width: 3;"></a-entity>
+    <a-entity id="ita-button" geometry="primitive: plane; height: 0.5; width: 1.5"
+              material="color: blue" position="0.5 2 -4.9"
+              text="value: ITA; color: white; align: center; width: 3;"></a-entity>
+    <a-entity id="tur-button" geometry="primitive: plane; height: 0.5; width: 1.5"
+              material="color: brown" position="2 2 -4.9"
+              text="value: TUR; color: white; align: center; width:
+
+
+
+
+
+
+
+ 
