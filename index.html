@@ -139,7 +139,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=0" />
   <title>Mezarje Tabine njive u Kladnju</title>
   <script src="https://aframe.io/releases/1.4.1/aframe.min.js"></script>
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
@@ -147,59 +147,113 @@
     body {
       margin: 0;
       overflow: hidden;
+      background-color: black;
     }
     a-scene {
-      width: 90%;
-      height: 80vh;
+      width: 100vw;
+      height: 100vh;
     }
   </style>
 </head>
 <body>
   <!-- AUDIO -->
-  <audio id="audio-bosnian">
-    <source src="https://cdn.jsdelivr.net/gh/saracen7mi/tabinenjive@main/tabinenjivebosanski.mp3" type="audio/mpeg" />
+  <audio id="audio-bosnian" preload="auto">
+    <source src="https://cdn.jsdelivr.net/gh/saracen7mi/tabinenjive@main/tabinenjivebosanski.mp3" type="audio/mpeg">
   </audio>
-  <audio id="audio-english">
-    <source src="https://cdn.jsdelivr.net/gh/saracen7mi/tabinenjive@main/tabinenjiveengleski.mp3" type="audio/mpeg" />
+  <audio id="audio-english" preload="auto">
+    <source src="https://cdn.jsdelivr.net/gh/saracen7mi/tabinenjive@main/tabinenjiveengleski.mp3" type="audio/mpeg">
   </audio>
-  <audio id="audio-german">
-    <source src="https://cdn.jsdelivr.net/gh/saracen7mi/tabinenjive@main/tabinenjivenjemacki.mp3" type="audio/mpeg" />
+  <audio id="audio-german" preload="auto">
+    <source src="https://cdn.jsdelivr.net/gh/saracen7mi/tabinenjive@main/tabinenjivenjemacki.mp3" type="audio/mpeg">
   </audio>
-  <audio id="audio-italian">
-    <source src="https://cdn.jsdelivr.net/gh/saracen7mi/tabinenjive@main/tabinenjiveitalijanski.mp3" type="audio/mpeg" />
+  <audio id="audio-italian" preload="auto">
+    <source src="https://cdn.jsdelivr.net/gh/saracen7mi/tabinenjive@main/tabinenjiveitalijanski.mp3" type="audio/mpeg">
   </audio>
-  <audio id="audio-turkish">
-    <source src="https://cdn.jsdelivr.net/gh/saracen7mi/tabinenjive@main/tabinenjiveturski.mp3" type="audio/mpeg" />
+  <audio id="audio-turkish" preload="auto">
+    <source src="https://cdn.jsdelivr.net/gh/saracen7mi/tabinenjive@main/tabinenjiveturski.mp3" type="audio/mpeg">
   </audio>
 
-  <a-scene embedded arjs="sourceType: webcam; trackingMethod: best; debugUIEnabled: false;">
-    <a-plane color="#008000" height="3.5" width="6.5" position="0 0.5 -5" opacity="0.9"></a-plane>
+  <!-- SCENA -->
+  <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+    <a-plane color="#006400" height="4" width="6.5" position="0 0.5 -5" opacity="0.8"></a-plane>
 
-    <!-- MODELI -->
-    <a-entity 
-      gltf-model="https://cdn.jsdelivr.net/gh/saracen7mi/tabinenjive@main/zvijezdaislam.glb" 
-      position="-2 1 -5" scale="1 1 1" rotation="0 240 0"
-      animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
+    <!-- ROTIRAJUĆI MODELI -->
+    <a-entity gltf-model="https://cdn.jsdelivr.net/gh/saracen7mi/tabinenjive@main/zvijezdaislam.glb"
+              position="-2 1 -5" scale="1 1 1" rotation="0 0 0"
+              animation="property: rotation; to: 0 360 0; loop: true; dur: 6000">
     </a-entity>
-    <a-entity 
-      gltf-model="https://cdn.jsdelivr.net/gh/saracen7mi/tabinenjive@main/zvijezdaislam.glb" 
-      position="2 1 -5" scale="1 1 1" rotation="0 240 0"
-      animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
+    <a-entity gltf-model="https://cdn.jsdelivr.net/gh/saracen7mi/tabinenjive@main/zvijezdaislam.glb"
+              position="2 1 -5" scale="1 1 1" rotation="0 0 0"
+              animation="property: rotation; to: 0 360 0; loop: true; dur: 6000">
     </a-entity>
 
     <!-- DUGMAD -->
-    <a-entity id="eng-button" geometry="primitive: plane; height: 0.5; width: 1.5"
-              material="color: red" position="-2.5 2 -4.9"
-              text="value: ENG; color: white; align: center; width: 3;"></a-entity>
-    <a-entity id="deu-button" geometry="primitive: plane; height: 0.5; width: 1.5"
-              material="color: yellow" position="-1 2 -4.9"
-              text="value: DEU; color: black; align: center; width: 3;"></a-entity>
-    <a-entity id="ita-button" geometry="primitive: plane; height: 0.5; width: 1.5"
-              material="color: blue" position="0.5 2 -4.9"
-              text="value: ITA; color: white; align: center; width: 3;"></a-entity>
-    <a-entity id="tur-button" geometry="primitive: plane; height: 0.5; width: 1.5"
+    <a-entity id="eng-button" geometry="primitive: plane; height: 0.5; width: 1.2"
+              material="color: red" position="-2.2 2 -4.9"
+              text="value: ENG; color: white; align: center;"></a-entity>
+    <a-entity id="deu-button" geometry="primitive: plane; height: 0.5; width: 1.2"
+              material="color: yellow" position="-0.8 2 -4.9"
+              text="value: DEU; color: black; align: center;"></a-entity>
+    <a-entity id="ita-button" geometry="primitive: plane; height: 0.5; width: 1.2"
+              material="color: blue" position="0.6 2 -4.9"
+              text="value: ITA; color: white; align: center;"></a-entity>
+    <a-entity id="tur-button" geometry="primitive: plane; height: 0.5; width: 1.2"
               material="color: brown" position="2 2 -4.9"
-              text="value: TUR; color: white; align: center; width:
+              text="value: TUR; color: white; align: center;"></a-entity>
+
+    <!-- TEKST -->
+    <a-text value="Tabine njive – prvo društveno groblje u Kladnju iz 1905. godine, simbol zajedništva i kulture."
+            color="yellow" position="0 1.2 -4.9" align="center" width="5" wrap-count="40" scale="0.5 0.5 0.5">
+    </a-text>
+
+    <!-- KAMERA I KURSOR -->
+    <a-entity camera>
+      <a-cursor color="red" fuse="true" timeout="500"></a-cursor>
+    </a-entity>
+  </a-scene>
+
+  <script>
+    const audioElements = {
+      bos: document.getElementById('audio-bosnian'),
+      eng: document.getElementById('audio-english'),
+      deu: document.getElementById('audio-german'),
+      ita: document.getElementById('audio-italian'),
+      tur: document.getElementById('audio-turkish')
+    };
+
+    function stopAll() {
+      for (const key in audioElements) {
+        const audio = audioElements[key];
+        audio.pause();
+        audio.currentTime = 0;
+      }
+    }
+
+    function play(lang) {
+      stopAll();
+      const selected = audioElements[lang];
+      if (selected) {
+        selected.play().catch(e => console.warn('Autoplay blokiran:', e));
+      }
+    }
+
+    // Dugmad klik
+    document.getElementById('eng-button').addEventListener('click', () => play('eng'));
+    document.getElementById('deu-button').addEventListener('click', () => play('deu'));
+    document.getElementById('ita-button').addEventListener('click', () => play('ita'));
+    document.getElementById('tur-button').addEventListener('click', () => play('tur'));
+
+    // Prvo klik bilo gdje -> pokreni bosanski
+    window.addEventListener('load', () => {
+      const autoPlay = () => {
+        play('bos');
+        document.body.removeEventListener('click', autoPlay);
+      };
+      document.body.addEventListener('click', autoPlay);
+    });
+  </script>
+</body>
+</html>
 
 
 
